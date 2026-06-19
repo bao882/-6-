@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FLYCO · Premium Shavers</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Roboto, system-ui, sans-serif;
+        }
+        body {
+            background: #fafafa;
+            color: #1e1e2a;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 1360px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+        .navbar {
+            background: #0b1a2f;
+            color: #fff;
+            padding: 16px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+        .navbar .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .logo-icon {
+            font-size: 28px;
+            color: #f0c040;
+        }
+        .logo-text {
+            font-weight: 600;
+            font-size: 22px;
+            letter-spacing: 1px;
+            color: #fff;
+        }
+        .logo-text span {
+            color: #f0c040;
+        }
+        .nav-links {
+            display: flex;
+            gap: 18px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+        .nav-links a {
+            color: #eef2f5;
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 500;
+            transition: 0.2s;
+            padding: 6px 0;
+            border-bottom: 2px solid transparent;
+        }
+        .nav-links a:hover {
+            color: #f5d742;
+            border-bottom-color: #f5d742;
+        }
+        .nav-links .cn-link {
+            background: #2a3f5a;
+            padding: 6px 14px;
+            border-radius: 40px;
+            font-size: 13px;
+            font-weight: 600;
+            color: #fff;
+            border: 1px solid #4b6a8a;
+            transition: 0.2s;
+            text-decoration: none;
+        }
+        .nav-links .cn-link:hover {
+            background: #f0c040;
+            color: #0b1a2f;
+            border-color: #f0c040;
+        }
+        .hero {
+            background: linear-gradient(145deg, #f2f6fc, #e8edf5);
+            padding: 50px 0 40px;
+            border-bottom: 1px solid #d0dbe8;
+        }
+        .hero-grid {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 30px;
+        }
+        .hero-image {
+            flex: 1 1 360px;
+            text-align: center;
+        }
+        .hero-image img {
+            max-width: 100%;
+            width: 380px;
+            filter: drop-shadow(0 12px 28px rgba(0, 20, 40, 0.20));
+            transition: 0.3s;
+        }
+        .hero-image img:hover {
+            transform: scale(1.02);
+        }
+        .hero-content {
+            flex: 2 1 400px;
+        }
+        .hero-content h1 {
+            font-size: 42px;
+            font-weight: 700;
+            color: #0a1c2e;
+            letter-spacing: -0.5px;
+        }
+        .hero-content h1 i {
+            color: #d4a020;
+            margin-right: 10px;
+        }
+        .hero-content .sub {
+            font-size: 18px;
+            color: #2b445c;
+            margin: 16px 0 12px;
+            font-weight: 400;
+        }
+        .hero-content p {
+            font-size: 16px;
+            color: #2f4055;
+            max-width: 540px;
+            margin-bottom: 20px;
+        }
+        .badge-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 18px 32px;
+            margin: 20px 0 10px;
+        }
+        .badge-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 500;
+            color: #1e3b4f;
+        }
+        .badge-item i {
+            color: #e6b422;
+            font-size: 20px;
+            width: 28px;
+        }
+        .btn-cta {
+            display: inline-block;
+            background: #0b1a2f;
+            color: #fff;
+            padding: 12px 38px;
+            border-radius: 60px;
+            font-weight: 600;
+            font-size: 17px;
+            letter-spacing: 0.5px;
+            margin-top: 14px;
+            border: none;
+            transition: 0.25s;
+            box-shadow: 0 6px 14px rgba(11, 26, 47, 0.25);
+            text-decoration: none;
+        }
+        .btn-cta i {
+            margin-right: 10px;
+        }
+        .btn-cta:hover {
+            background: #e6b422;
+            color: #0b1a2f;
+            box-shadow: 0 8px 18px rgba(11, 26, 47, 0.3);
+        }
+        .section-title {
+            font-size: 32px;
+            font-weight: 700;
+            color: #0b1a2f;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .section-title i {
+            color: #d4a020;
+            font-size: 30px;
+        }
+        .section-sub {
+            color: #3d5770;
+            margin-bottom: 32px;
+            font-size: 17px;
+            border-left: 4px solid #f0c040;
+            padding-left: 18px;
+        }
+        .section-pad {
+            padding: 60px 0 50px;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        .two-col {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+        }
+        .two-col>div {
+            flex: 1 1 280px;
+        }
+        .feature-card {
+            background: #fff;
+            border-radius: 24px;
+            padding: 28px 26px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.02);
+            border: 1px solid #edf2f7;
+            transition: 0.25s;
+            height: 100%;
+        }
+        .feature-card:hover {
+            border-color: #f0c040;
+            box-shadow: 0 10px 28px rgba(11, 26, 47, 0.06);
+        }
+        .feature-card h3 {
+            font-size: 20px;
+            margin-bottom: 12px;
+            color: #0b1a2f;
+        }
+        .feature-card h3 i {
+            color: #e6b422;
+            margin-right: 10px;
+        }
+        .feature-card p {
+            color: #2f4055;
+            font-size: 15px;
+        }
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 30px;
+            margin-top: 10px;
+        }
+        .product-item {
+            background: #fff;
+            border-radius: 28px;
+            padding: 24px 16px 20px;
+            text-align: center;
+            transition: 0.3s;
+            border: 1px solid #eef2f7;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.02);
+        }
+        .product-item:hover {
+            transform: translateY(-6px);
+            border-color: #f0c040;
+            box-shadow: 0 14px 28px rgba(11, 26, 47, 0.07);
+        }
+        .product-item img {
+            width: 100%;
+            max-width: 160px;
+            height: auto;
+            margin-bottom: 12px;
+        }
+        .product-item h4 {
+            font-size: 18px;
+            color: #0a1c2e;
+        }
+        .product-item .price {
+            color: #b8860b;
+            font-weight: 600;
+            font-size: 17px;
+            margin: 8px 0;
+        }
+        .product-item .desc {
+            font-size: 13px;
+            color: #4a5f75;
+        }
+        .news-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .news-item {
+            background: #fff;
+            padding: 16px 22px;
+            border-radius: 40px;
+            border-left: 6px solid #f0c040;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .news-item .tag {
+            background: #0b1a2f;
+            color: #fff;
+            padding: 4px 16px;
+            border-radius: 40px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+        .news-item .date {
+            color: #5c738b;
+            font-size: 14px;
+        }
+        .job-card {
+            background: #fff;
+            border-radius: 20px;
+            padding: 22px 26px;
+            border: 1px solid #e8edf5;
+            margin-bottom: 16px;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .job-card h4 {
+            font-size: 18px;
+            color: #0b1a2f;
+        }
+        .job-card span {
+            color: #3d5770;
+        }
+        .job-card .btn-outline {
+            background: transparent;
+            border: 2px solid #0b1a2f;
+            padding: 6px 22px;
+            border-radius: 60px;
+            font-weight: 600;
+            transition: 0.2s;
+            cursor: default;
+        }
+        .job-card .btn-outline:hover {
+            background: #0b1a2f;
+            color: #fff;
+        }
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 24px;
+            margin-top: 10px;
+        }
+        .team-member {
+            background: #fff;
+            padding: 18px 10px 16px;
+            border-radius: 60px 60px 30px 30px;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+            border: 1px solid #eef2f7;
+            transition: 0.2s;
+        }
+        .team-member:hover {
+            border-color: #f0c040;
+            transform: scale(1.02);
+        }
+        .team-member .avatar {
+            font-size: 42px;
+            color: #0b1a2f;
+            background: #ecf2f9;
+            width: 70px;
+            height: 70px;
+            line-height: 70px;
+            border-radius: 50%;
+            margin: 0 auto 8px;
+        }
+        .team-member h4 {
+            font-size: 17px;
+            font-weight: 600;
+            color: #0a1c2e;
+        }
+        .team-member p {
+            font-size: 13px;
+            color: #4a607a;
+        }
+        .footer {
+            background: #0b1a2f;
+            color: #bacddc;
+            padding: 28px 0;
+            margin-top: 20px;
+            text-align: center;
+            font-size: 14px;
+        }
+        .footer span {
+            color: #f0c040;
+        }
+        @media (max-width: 780px) {
+            .hero-content h1 {
+                font-size: 30px;
+            }
+            .nav-links {
+                gap: 10px;
+                margin-top: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <header class="navbar">
+        <div class="container">
+            <div class="logo-area">
+                <i class="fas fa-bolt logo-icon"></i>
+                <div class="logo-text">FLYCO<span>·</span></div>
+            </div>
+            <div class="nav-links">
+                <a href="#hero">Products</a>
+                <a href="#rd">R&D</a>
+                <a href="#products">Showcase</a>
+                <a href="#company">About</a>
+                <a href="#service">Service</a>
+                <a href="#news">News</a>
+                <a href="#career">Careers</a>
+                <a href="#team">Team</a>
+                <a href="#" class="cn-link"><i class="fas fa-globe"></i> 中文</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero" id="hero">
+        <div class="container hero-grid">
+            <div class="hero-image">
+                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 300'%3E%3Crect width='300' height='300' fill='%23d9e3ed'/%3E%3Cpath d='M100 80 L200 80 L210 180 L90 180 Z' fill='%233b5a7a'/%3E%3Cpath d='M130 180 L170 180 L175 230 L125 230 Z' fill='%235a7a9a'/%3E%3Ccircle cx='150' cy='110' r='18' fill='%23f0c040'/%3E%3Crect x='140' y='230' width='20' height='30' fill='%232b3f5a'/%3E%3C/svg%3E" alt="FLYCO Shaver">
+            </div>
+            <div class="hero-content">
+                <h1><i class="fas fa-razor"></i> FLYCO · Smart Shave</h1>
+                <div class="sub">Flagship Series · German Precision Blades</div>
+                <p>360° floating heads, AI-powered beard density sensing, wet & dry shaving, 90-minute battery life. Redefining men's grooming.</p>
+                <div class="badge-group">
+                    <span class="badge-item"><i class="fas fa-bolt"></i> Quick Charge</span>
+                    <span class="badge-item"><i class="fas fa-water"></i> Fully Washable</span>
+                    <span class="badge-item"><i class="fas fa-microchip"></i> Anti-Pinch Tech</span>
+                </div>
+                <a href="#" class="btn-cta"><i class="fas fa-cart-plus"></i> Shop Now</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- R&D -->
+    <section class="section-pad" id="rd">
+        <div class="container">
+            <div class="section-title"><i class="fas fa-flask"></i> R&D</div>
+            <div class="section-sub">German Engineering · Shanghai R&D Center · 200+ Patents</div>
+            <div class="two-col">
+                <div class="feature-card">
+                    <h3><i class="fas fa-microchip"></i> Smart Sensing</h3>
+                    <p>Adaptive beard density detection with 800 reads per minute, automatically adjusts power for a smooth shave.</p>
+                </div>
+                <div class="feature-card">
+                    <h3><i class="fas fa-battery-three-quarters"></i> Extended Battery</h3>
+                    <p>Next-gen lithium tech: 1-hour fast charge delivers 90 minutes of cordless use — perfect for travel.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Product Showcase -->
+    <section class="section-pad" id="products">
+        <div class="container">
+            <div class="section-title"><i class="fas fa-th-large"></i> Product Showcase</div>
+            <div class="section-sub">FLYCO Shaver Series · Classic & Innovative</div>
+            <div class="product-grid">
+                <div class="product-item">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 120'%3E%3Crect width='120' height='120' fill='%23eef2f7'/%3E%3Cpath d='M35 35 L85 35 L90 75 L30 75 Z' fill='%233b5a7a'/%3E%3Ccircle cx='60' cy='55' r='10' fill='%23f0c040'/%3E%3C/svg%3E" alt="FS901">
+                    <h4>FS901 Smart</h4>
+                    <div class="price">$89</div>
+                    <div class="desc">AI Adaptive · Wireless Charging</div>
+                </div>
+                <div class="product-item">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 120'%3E%3Crect width='120' height='120' fill='%23eef2f7'/%3E%3Cpath d='M40 40 L80 40 L85 80 L35 80 Z' fill='%235a7a9a'/%3E%3Ccircle cx='60' cy='60' r='12' fill='%23d4a020'/%3E%3C/svg%3E" alt="FS880">
+                    <h4>FS880 Precision</h4>
+                    <div class="price">$65</div>
+                    <div class="desc">Dual-Blade · Wet & Dry</div>
+                </div>
+                <div class="product-item">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 120'%3E%3Crect width='120' height='120' fill='%23eef2f7'/%3E%3Cpath d='M45 45 L75 45 L80 80 L40 80 Z' fill='%234b6a8a'/%3E%3Ccircle cx='60' cy='62' r='9' fill='%23f0c040'/%3E%3C/svg%3E" alt="FS375">
+                    <h4>FS375 Compact</h4>
+                    <div class="price">$39</div>
+                    <div class="desc">Mini Body · Type-C Charging</div>
+                </div>
+                <div class="product-item">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 120'%3E%3Crect width='120' height='120' fill='%23eef2f7'/%3E%3Cpath d='M30 30 L90 30 L95 90 L25 90 Z' fill='%233b5a7a'/%3E%3Ccircle cx='60' cy='60' r='15' fill='%23e6b422'/%3E%3C/svg%3E" alt="FS988">
+                    <h4>FS988 Flagship</h4>
+                    <div class="price">$129</div>
+                    <div class="desc">Full Floating · Voice Alerts</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About + Service -->
+    <section class="section-pad" id="company">
+        <div class="container">
+            <div class="section-title"><i class="fas fa-building"></i> About Us</div>
+            <div class="section-sub">FLYCO Electric · Since 1999 · China's Leading Shaver Brand</div>
+            <div class="two-col">
+                <div class="feature-card">
+                    <h3><i class="fas fa-flag"></i> Our Mission</h3>
+                    <p>To deliver exceptional grooming solutions for men worldwide, driven by innovation and quality craftsmanship.</p>
+                </div>
+                <div class="feature-card" id="service">
+                    <h3><i class="fas fa-headset"></i> After-Sales Service</h3>
+                    <p>2-year warranty · 24/7 customer hotline · 500+ service centers nationwide for fast support.</p>
+                    <p style="margin-top:8px;"><i class="fas fa-check-circle" style="color:#e6b422;"></i> 30-day hassle-free returns</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- News -->
+    <section class="section-pad" id="news">
+        <div class="container">
+            <div class="section-title"><i class="fas fa-newspaper"></i> News & Events</div>
+            <div class="section-sub">Latest Updates · Brand Stories</div>
+            <div class="news-list">
+                <div class="news-item"><span>🏆 FLYCO FS901 Wins 2025 iF Design Award</span> <span class="tag">Award</span><span class="date">2025-03-12</span></div>
+                <div class="news-item"><span>🚀 Spring Launch Event · All‑New Grooming Solutions</span> <span class="tag">Event</span><span class="date">2025-04-01</span></div>
+                <div class="news-item"><span>🌍 FLYCO Debuts at CES 2025 Las Vegas</span> <span class="tag">Expo</span><span class="date">2025-01-09</span></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Careers -->
+    <section class="section-pad" id="career">
+        <div class="container">
+            <div class="section-title"><i class="fas fa-users"></i> Careers</div>
+            <div class="section-sub">Join FLYCO · Shape the Future of Grooming</div>
+            <div class="job-card"><h4>Senior Mechanical Engineer</h4><span>Shanghai · Full-time</span><span class="btn-outline">Apply</span></div>
+            <div class="job-card"><h4>Brand Marketing Manager</h4><span>Shenzhen · Full-time</span><span class="btn-outline">Apply</span></div>
+            <div class="job-card"><h4>Overseas Sales Representative</h4><span>Remote · Full-time</span><span class="btn-outline">Apply</span></div>
+        </div>
+    </section>
+
+    <!-- Team -->
+    <section class="section-pad" id="team">
+        <div class="container">
+            <div class="section-title"><i class="fas fa-user-friends"></i> Our Team</div>
+            <div class="section-sub">Core Team · Driven by Innovation</div>
+            <div class="team-grid">
+                <div class="team-member"><div class="avatar"><i class="fas fa-user"></i></div><h4>Bao Kunzhou</h4><p>Product Director</p></div>
+                <div class="team-member"><div class="avatar"><i class="fas fa-user"></i></div><h4>Huang Wenzhuo</h4><p>R&D Manager</p></div>
+                <div class="team-member"><div class="avatar"><i class="fas fa-user"></i></div><h4>Wei Fuwen</h4><p>Industrial Design</p></div>
+                <div class="team-member"><div class="avatar"><i class="fas fa-user"></i></div><h4>Hu Zhiguang</h4><p>Supply Chain</p></div>
+                <div class="team-member"><div class="avatar"><i class="fas fa-user"></i></div><h4>Huang Luoqiang</h4><p>Marketing Lead</p></div>
+                <div class="team-member"><div class="avatar"><i class="fas fa-user"></i></div><h4>Li Yixian</h4><p>Quality & Service</p></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p><i class="fas fa-razor" style="color:#f0c040;"></i> FLYCO · Electric Appliance <span>|</span> Products may vary <span>|</span> © 2026 FLYCO</p>
+            <p style="margin-top:6px; opacity:0.7;">Inspired by Innovation</p>
+        </div>
+    </footer>
+
+</body>
+</html>
